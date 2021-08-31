@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--BOOTSTRAP-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Monitoreo</title>
+</head>
+<body>
+
+    <div class="title_container"> 
+        <h1 class="display-3">Monitoreo<h1>
+    </div>
+
+    <div class="table_container">
+        <table class="table table-bordered table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Instancia 1</td>
+                    <% if(instance1) {%>
+                        <td>Funcionando</td>
+                    <%}else{%>
+                        <td>Detenida</td>
+                        <td>
+                            <form action="/restart1" method="get">
+                                <input type="submit" value="reiniciar" class="btn btn-danger">
+                            </form>
+                        </td>
+                    <%}%>
+                </tr>
+                <tr>
+                    <td>Instancia 2</td>
+                    <% if(instance2) {%>
+                        <td>Funcionando</td>
+                    <%}else{%>
+                        <td>Detenida</td>
+                        <td>
+                            <form action="/restart2" method="get">
+                                <input type="submit" value="reiniciar" class="btn btn-danger">
+                            </form>
+                        </td>
+                    <%}%>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <form action="/" method="get" class="refresh_btn">
+        <input type="submit" value="Refrescar" class="btn btn-success">
+    </form>
+</body>
+</html>

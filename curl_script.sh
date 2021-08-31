@@ -1,0 +1,2 @@
+#!/bin/bash
+watch -n 2 "(date '+TIME:%H:%M:%S'; echo 'instancia1' ; curl --connect-timeout 5 192.168.33.30:3000; echo '' ;echo 'instancia2' ; curl  --connect-timeout 5 192.168.33.31:3000; echo '') >> log.txt"
